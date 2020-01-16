@@ -1,4 +1,4 @@
-class CreateCinemas < ActiveRecord::Migration
+class CreateTheatres < ActiveRecord::Migration[6.0]
     def change
       create_table :theatres do |t|
         t.integer :capacity
