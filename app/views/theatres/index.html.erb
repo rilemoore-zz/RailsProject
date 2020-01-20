@@ -1,0 +1,8 @@
+<h3>Theatres</h3>
+<ul>
+<% @theatres.each do |theatre| %>
+   <li>Theatre <%= link_to theatre.id, theatre %> <%=" at #{theatre.cinema.name} is currently showing #{theatre.movie.title}." %></li>
+<% end %>
+</ul>
+
+<%= link_to "View Cinemas", cinemas_path, :method => :get %> <br>

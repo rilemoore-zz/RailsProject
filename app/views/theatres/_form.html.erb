@@ -1,0 +1,11 @@
+<%= form_for @theatre, method: :patch do |f| %>
+    <%= f.label :capacity, "Theatre Capacity" %>
+    <%= f.text_field :capacity %><br /><br />
+
+    <strong><%= f.label :movie %></strong><br /><br />
+    <%= f.collection_select(:movie_id, Movie.all, :id, :title, :prompt => 'Select') %>
+
+    <%= f.submit 'Create' %>
+<% end %>
+  
+  <%= link_to 'Back', movies_path %>

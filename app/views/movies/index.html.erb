@@ -1,0 +1,19 @@
+<h3>Movies</h3>
+<ul>
+<% @movies.each do |movie| %>
+    <li>
+        <%= link_to movie.title, movie %>
+        <% if movie.cinemas.empty? %>
+            <%= "is not currently showing at any cinemas." %>
+        <% else %>
+            <%= "is now playing at the following cinema: " %><br>
+            <% movie.cinemas.each do |cinema| %>
+                <%= link_to cinema.name, cinema %> <br>
+            <% end %>
+        <% end %>
+
+    </li>
+<% end %>
+</ul>
+
+<%= link_to "View Cinemas", cinemas_path, :method => :get %> <br>

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
     root 'static_pages#home'
-    resources :cinemas, only: [:new, :create, :show]
+    resources :cinemas
     resources :movies
+    resources :theatres
     post '/theatres', to: 'theatres#create'
     devise_scope :user do
       get 'signup', to: 'devise/registrations#new'

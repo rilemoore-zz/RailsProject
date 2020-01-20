@@ -1,0 +1,10 @@
+<%= form_for @theatre do |f| %>
+    Capacity: <%= f.text_field :capacity %><br><br>
+    <%= f.fields_for :movie do |movie| %>
+      <%= movie.label :title %>
+      <%= movie.text_field :title %><br>
+      <%= movie.label :runtime %>
+      <%= movie.text_field :runtime %><br>
+    <% end %>
+    <%= f.submit %>
+  <% end %>

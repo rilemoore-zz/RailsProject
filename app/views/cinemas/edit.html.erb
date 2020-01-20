@@ -1,0 +1,15 @@
+<h1>Edit <%= @cinema.name %></h1>
+  
+  <% content_for :vertical_nav do %>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-3">
+        <%= button_to "Back to #{@cinema.name}", cinema_path(@cinema), :method => "get" %>
+      </li>
+      <li class="nav-item mb-3">
+        <%= button_to "View All Cinemas", cinemas_path, :method => "get" %>
+      </li>
+    </ul>
+  <% end %>
+<ul>
+<%= render partial: "form", locals: {cinema: @cinema} %>
+</ul>

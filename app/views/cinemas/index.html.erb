@@ -1,0 +1,6 @@
+<h3>Cinemas</h3>
+<ul>
+<% @cinemas.each do |cinema| %>
+  <li><%= link_to cinema.name, cinema %></li>
+<% end %>
+</ul>

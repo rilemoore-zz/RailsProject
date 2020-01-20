@@ -1,4 +1,6 @@
 class Cinema < ApplicationRecord
-    has_many :theatres
-    has_many :movies, through: :theatres
+    has_many :theatres, :dependent => :destroy
+    has_many :movies, :through => :theatres
+    accepts_nested_attributes_for :theatres
+    accepts_nested_attributes_for :movies
 end

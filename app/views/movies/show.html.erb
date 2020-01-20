@@ -1,0 +1,9 @@
+<h2> <%= @movie.title %></h2>
+  <%= button_to "Update Movie details", edit_movie_path(@movie), :method => "get" %>
+<h3>Now playing at the following Cinemas: </h2>
+
+<ul>
+<% @movie.cinemas.each do |cinema| %>
+    <li><%= cinema.name %><li> <br>
+<% end %>
+</ul>

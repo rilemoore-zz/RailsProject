@@ -19,12 +19,15 @@ class MoviesController < ApplicationController
     end
   
     def show
+      @movie = Movie.find(params[:id])
     end
   
     def edit
+      @movie = Movie.find(params[:id])
     end
   
     def update
+      @movie = Movie.find(params[:id])
       @movie.update(movie_params)
       if @movie.save
         redirect_to movie_path(@movie)
@@ -39,6 +42,6 @@ class MoviesController < ApplicationController
     end
   
     def movie_params
-      params.require(:movie).permit(:tite, :runtime)
+      params.require(:movie).permit(:title, :runtime)
     end
   end

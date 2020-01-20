@@ -1,0 +1,14 @@
+<%= form_for @cinema, method: :patch do |f| %>
+    <%= f.label :name, "Cinema Name" %>
+    <%= f.text_field :name %><br /><br />
+    <strong><%= f.label :theatres %></strong><br /><br />
+    create a new movie:<br />
+      <%= f.fields_for :movies, @cinema.movies.build do |movie_fields| %>
+        <%= movie_fields.label :title, "Title" %>
+        <%= movie_fields.text_field :title %>
+  
+      <% end %><br /><br />
+    <%= f.submit 'Create' %>
+  <% end %>
+  
+  <%= link_to 'Back', cinemas_path %>

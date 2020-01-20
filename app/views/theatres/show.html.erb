@@ -1,0 +1,4 @@
+<h2> theatre <%= @theatre.id %></h2>
+  <%= button_to "Update theatre details", edit_theatre_path(@theatre), :method => "get" %>
+<h3><%="Belongs to: #{@theatre.cinema.name}, currently showing: #{@theatre.movie.title}"%> </h3>
+<%= link_to "View Cinemas", cinemas_path, :method => :get %> <br>
