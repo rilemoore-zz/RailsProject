@@ -5,10 +5,11 @@
 <ul>
 <% count = 0 %>
 <% @cinema.theatres.each do |theatre| %>
-  <li><%= "Theatre #{count} is now playing: #{theatre.movie.title}." %></li> <br>
+  <li>Theatre <%= link_to theatre.id, theatre %> is currently showing <%= link_to theatre.movie.title, theatre.movie %></li>
   <%= button_to "Update Movie details", edit_movie_path(theatre.movie), :method => "get" %> 
   <%= button_to "Update Theatre details", edit_theatre_path(theatre), :method => "get" %>
   <% count += 1 %>
 <% end %>
 </ul>
 <%= link_to "Add a theatre", new_theatre_path, :method => :get %> <br>
+<%= button_to "Back", cinemas_path, :method => :get %> <br>

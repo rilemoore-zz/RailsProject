@@ -4,6 +4,7 @@
 
 <ul>
 <% @movie.cinemas.each do |cinema| %>
-    <li><%= cinema.name %><li> <br>
+  <%= link_to cinema.name, cinema %> <br />
 <% end %>
 </ul>
+

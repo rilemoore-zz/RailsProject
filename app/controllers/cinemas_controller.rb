@@ -35,14 +35,12 @@ class CinemasController < ApplicationController
         redirect_to cinema_path(@cinema)
 
       else
-
         render :edit
-        
       end
     end
 
     private
     def cinema_params
-      params.require(:cinema).permit(:id, :name, :num_theatres, movies_attributes: [:id, :title, :runtime])
+      params.require(:cinema).permit(:id, :name, :num_theatres, theatres_attributes: [:id, :capacity, :movie_id], movies_attributes: [:id, :title, :runtime])
     end
   end
