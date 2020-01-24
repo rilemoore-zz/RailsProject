@@ -36,6 +36,11 @@ class MoviesController < ApplicationController
       end
     end
   
+    def search
+      @movies = Movie.search(params[:query])
+      render :index
+    end
+
     private
     def find_movie
       @movie = Movie.find_by(id: params[:id])

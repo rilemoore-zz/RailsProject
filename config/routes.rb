@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :cinemas
     resources :movies
     resources :theatres
+    get '/search', to: 'movies#search'
     post '/theatres', to: 'theatres#create'
     devise_scope :user do
       get 'signup', to: 'devise/registrations#new'

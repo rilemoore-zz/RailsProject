@@ -16,4 +16,10 @@
 <% end %>
 </ul>
 
+    <%= form_tag("/search", method: "get") do %>
+      <%= label_tag :query, "Search by Title:" %>
+      <%= text_field_tag :query, "", class:"form-control" %>
+      <%= submit_tag "Search", class: "btn btn-sm btn-secondary" %>
+    <% end %>
+
 <%= link_to "View Cinemas", cinemas_path, :method => :get %> <br>

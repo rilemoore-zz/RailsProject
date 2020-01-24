@@ -1,3 +1,13 @@
+<% if @cinema.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+    <% @cinema.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @cinema do |f| %>
   <%= f.label :name, "Cinema Name" %>
   <%= f.text_field :name %><br /><br />

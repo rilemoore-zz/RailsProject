@@ -16,10 +16,10 @@ class CinemasController < ApplicationController
   
     def create
       @cinema = Cinema.new(cinema_params)
-      if @cinema.save!
+      if @cinema.save
+        flash[:message] = "#{@cinema.name} has been created"
         redirect_to cinema_path(@cinema)  
       else
-
         render :new
       end
     end
@@ -31,9 +31,8 @@ class CinemasController < ApplicationController
     def update
       @cinema = Cinema.find(params[:id])
       @cinema.update(cinema_params)
-      if @cinema.save
+      if @cinema.save!
         redirect_to cinema_path(@cinema)
-
       else
         render :edit
       end
