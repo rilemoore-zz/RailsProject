@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     resources :theatres
     get '/search', to: 'movies#search'
     post '/theatres', to: 'theatres#create'
+
+    resources :cinemas do
+      resources :movies, only: [:show]
+    end
+
     devise_scope :user do
       get 'signup', to: 'devise/registrations#new'
       get 'login', to: 'devise/sessions#new'

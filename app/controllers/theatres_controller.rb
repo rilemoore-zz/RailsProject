@@ -1,5 +1,5 @@
 class TheatresController < ApplicationController
-  
+  before_action :authenticate_user!
     def show
       @theatre = Theatre.find(params[:id])
     end

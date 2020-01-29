@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
     before_action :find_movie, only: [:show, :edit, :update]
-  
+    before_action :authenticate_user!
     def index
       @movies = Movie.all
     end

@@ -1,4 +1,7 @@
 class CinemasController < ApplicationController
+
+  before_action :authenticate_user!
+
     def show
       @cinema = Cinema.find(params[:id])
 
@@ -13,7 +16,13 @@ class CinemasController < ApplicationController
       @theatres = @cinema.theatres.build
       @movie = @theatres.build_movie
     end
-  
+    
+    def movie
+      @cinema = Cinema.find(params[:id])
+      @movie = Movie.find(params[:id])
+      render template: 'movies/show'
+    end
+
     def create
       @cinema = Cinema.new(cinema_params)
       if @cinema.save
@@ -31,7 +40,7 @@ class CinemasController < ApplicationController
     def update
       @cinema = Cinema.find(params[:id])
       @cinema.update(cinema_params)
-      if @cinema.save!
+      if @cinema.save
         redirect_to cinema_path(@cinema)
       else
         render :edit
