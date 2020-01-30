@@ -1,5 +1,5 @@
 <h2> <%= @cinema.name %></h2>
-  <%= button_to "Update Cinema details", edit_cinema_path(@cinema), :method => "get" %>
+  <%= button_to "Update Cinema Details/Add Theatre", edit_cinema_path(@cinema), :method => "get" %>
 <h3>Theatres</h2>
 
 <ul>
@@ -11,5 +11,5 @@
   <% count += 1 %>
 <% end %>
 </ul>
-<%= link_to "Add a theatre", new_theatre_path, :method => :get %> <br>
+
 <%= button_to "Back", cinemas_path, :method => :get %> <br>

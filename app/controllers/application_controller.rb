@@ -8,12 +8,5 @@ class ApplicationController < ActionController::Base
           false
         end
       end
-
-    def require_login
-        # unless logged_in?
-        #   flash[:danger] = "You must be logged in to view this page"
-        #   redirect_to login_path
-        # end
-      end
     
 end
